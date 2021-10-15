@@ -8,9 +8,9 @@ import Rating from "@material-ui/lab/Rating";
 import useStyles from "./style.js";
 
 const Map = ({
-  coords,
+  coordinates,
   places,
-  setCoords,
+  setCoordinates,
   setBounds,
   setChildClicked,
   weatherData,
@@ -18,18 +18,19 @@ const Map = ({
   const matches = useMediaQuery("(min-width:600px)");
   const classes = useStyles();
 
-  const coordination = { lat: 0, lng: 0 };
-
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
         bootstrapURLKeys={{ key: "AIzaSyB8muH9phs4NCfcNnPoHLlp-eXuRU7ASGI" }}
-        defaultCenter={coordination}
-        center={coordination}
+        defaultCenter={coordinates}
+        center={coordinates}
         defaultZoom={14}
         margin={[50, 50, 50, 50]}
         option={""}
-        onChange={""}
+        onChange={(e) => {
+          setCoordinates({ lat: e.center.lat, lng: e.center.lng });
+          setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw})
+        }}
         onChildClick={""}
       ></GoogleMapReact>
     </div>
