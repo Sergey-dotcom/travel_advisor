@@ -7,14 +7,7 @@ import Rating from "@material-ui/lab/Rating";
 //import mapStyles from "../../mapStyles";
 import useStyles from "./style.js";
 
-const Map = ({
-  coordinates,
-  places,
-  setCoordinates,
-  setBounds,
-  setChildClicked,
-  weatherData,
-}) => {
+const Map = ({ coordinates, setCoordinates, setBounds }) => {
   const matches = useMediaQuery("(min-width:600px)");
   const classes = useStyles();
 
@@ -29,7 +22,7 @@ const Map = ({
         option={""}
         onChange={(e) => {
           setCoordinates({ lat: e.center.lat, lng: e.center.lng });
-          setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw})
+          setBounds({ ne: e.marginBounds.ne, sw: e.marginBounds.sw });
         }}
         onChildClick={""}
       ></GoogleMapReact>
