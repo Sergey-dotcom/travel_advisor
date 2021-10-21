@@ -21,7 +21,7 @@ const Map = ({
   return (
     <div className={classes.mapContainer}>
       <GoogleMapReact
-        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_MAP_API_KEY }}
+        bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_API_KEY}}
         defaultCenter={coords}
         center={coords}
         defaultZoom={14}
@@ -54,7 +54,6 @@ const Map = ({
                     variant="subtitle2"
                     gutterBottom
                   >
-                    {" "}
                     {place.name}
                   </Typography>
                   <img
@@ -64,6 +63,7 @@ const Map = ({
                         ? place.photo.images.large.url
                         : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
                     }
+                    alt={place.photo.images.name}
                   />
                   <Rating
                     name="read-only"
@@ -77,10 +77,11 @@ const Map = ({
           ))}
         {weatherData?.list?.length &&
           weatherData.list.map((data, i) => (
-            <div key={i} lat={data.coord.lat} lng={data.coord.lon}>
+            <div key={i} lat={data.coord.lat} lng={data.coord.lng}>
               <img
                 src={`http://openweathermap.org/img/w/${data.weather[0].icon}.png`}
                 height="70px"
+                alt="weather_icon"
               />
             </div>
           ))}
