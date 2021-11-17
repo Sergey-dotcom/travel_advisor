@@ -33,6 +33,7 @@ const App = () => {
     const filtered = places.filter((place) => Number(place.rating) > rating);
 
     setFilteredPlaces(filtered);
+    // eslint-disable-next-line 
   }, [rating]);
 
   useEffect(() => {
@@ -50,6 +51,7 @@ const App = () => {
         setIsLoading(false);
       });
     }
+    // eslint-disable-next-line 
   }, [bounds, type]);
 
   const onLoad = (autoC) => setAutocomplete(autoC);

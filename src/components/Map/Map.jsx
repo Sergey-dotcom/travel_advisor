@@ -63,7 +63,7 @@ const Map = ({
                         ? place.photo.images.large.url
                         : "https://www.foodserviceandhospitality.com/wp-content/uploads/2016/09/Restaurant-Placeholder-001.jpg"
                     }
-                    alt={place.photo.images.name}
+                    alt={place.name}
                   />
                   <Rating
                     name="read-only"
